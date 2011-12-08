@@ -45,8 +45,13 @@ set ruler
 syntax on
 set wrap
 set tw=0
-"set background=dark
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+let g:solarized_hitrail=1
+let g:solarized_termtrans=1
 colorscheme solarized
+set background=dark
+
 set showmatch
 set mat=2
 
