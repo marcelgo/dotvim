@@ -11,6 +11,19 @@ VUNDLE_CONFIG_FILE = 'vundle.config'
 README_FILE = 'README.md'
 
 namespace :vim do
+  desc 'Install vundle'
+  task :install do
+    bundle_dir = '~/.vim/bundle'
+    vundle_dir = '~/.vim/bundle/vundle'
+    make_dir = "mkdir #{bundle_dir}"
+    clone_vundle = "git clone http://github.com/gmarik/vundle.git #{vundle_dir}"
+    exec_vim = "vim +BundleInstall"
+
+    system(make_dir) unless File.exists?(bundle_dir)
+    system(clone_vundle) unless File.exists?(vundle_dir)
+    system(exec_vim) if File.exists?(vundle_dir)
+  end
+
   desc 'Create symlinks'
   task :link do
     begin
