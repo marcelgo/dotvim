@@ -1,5 +1,7 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
+set t_Co=256
+set guifont="Meslo LG M DZ":h12
 
 " Include user's local vim config
 if filereadable(expand("~/.vim/vundle.config"))
