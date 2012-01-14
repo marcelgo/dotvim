@@ -1,7 +1,8 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 set t_Co=256
-set guifont="Meslo LG M DZ":h12
+set guifont=Mensch\ for\ Powerline:h12
+let g:Powerline_symbols = 'fancy'
 
 " Include user's local vim config
 if filereadable(expand("~/.vim/vundle.config"))
