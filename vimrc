@@ -99,6 +99,17 @@ map <Leader>n :NERDTreeToggle<CR>
 " Command-T configuration
 let g:CommandTMaxHeight=20
 
+" CTRL-P configuration
+let g:ctrlp_map = '<c-t>' " map to ctrl-t
+let g:ctrlp_by_filename = 1 " make filename mode standard
+let g:ctrlp_match_window_reversed = 1 " reverse match sort order
+let g:ctrlp_working_path_mode = 2 " find working-directory
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\.git$\|\.hg$\|\.svn$',
+	\ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$',
+	\ 'link': 'some_bad_symbolic_link',
+	\ }
+
 " Remember last location in file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
