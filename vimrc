@@ -57,7 +57,7 @@ let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 let g:solarized_hitrail=1
 let g:solarized_termtrans=1
-colorscheme solarized
+colorscheme desert
 set background=light
 
 set showmatch
