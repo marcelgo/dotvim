@@ -4,6 +4,11 @@ set t_Co=256
 set guifont=Mensch\ for\ Powerline:h12
 let g:Powerline_symbols = 'fancy'
 
+" use system clipboard on osx
+set clipboard=unnamed
+
+set hidden
+
 " Include user's local vim config
 if filereadable(expand("~/.vim/vundle.config"))
   source ~/.vim/vundle.config
@@ -13,8 +18,8 @@ endif
 let mapleader=','
 
 " use arrows to switch buffers
-nmap <silent> <c-right> :bn<CR>
-nmap <silent> <c-left> :bp<CR>
+nmap <silent> <S-w> :bn<CR>
+nmap <silent> <S-q> :bp<CR>
 
 " use arrow to switch windows
 nmap <silent> <C-k> :wincmd k<CR>
@@ -53,7 +58,7 @@ let g:solarized_visibility="high"
 let g:solarized_hitrail=1
 let g:solarized_termtrans=1
 colorscheme solarized
-set background=dark
+set background=light
 
 set showmatch
 set mat=2
@@ -100,15 +105,15 @@ map <Leader>n :NERDTreeToggle<CR>
 let g:CommandTMaxHeight=20
 
 " CTRL-P configuration
-let g:ctrlp_map = '<c-t>' " map to ctrl-t
-let g:ctrlp_by_filename = 1 " make filename mode standard
+let g:ctrlp_map = '<c-x>' " map to ctrl-x
+let g:ctrlp_by_filename = 0 " make filename mode standard
 let g:ctrlp_match_window_reversed = 1 " reverse match sort order
 let g:ctrlp_working_path_mode = 2 " find working-directory
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\.git$\|\.hg$\|\.svn$',
-	\ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$',
-	\ 'link': 'some_bad_symbolic_link',
-	\ }
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+  \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$',
+  \ 'link': 'some_bad_symbolic_link',
+  \ }
 
 " Remember last location in file
 if has("autocmd")
@@ -121,6 +126,7 @@ au FileType make set noexpandtab
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+au BufRead,BufNewFile *.{pill}    set ft=ruby
 
 " md, markdown, and mk are markdown and define buffer-local preview
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
@@ -250,4 +256,33 @@ autocmd BufRead,BufNew :call UMiniBufExplorer
 map <leader>m :TMiniBufExplorer<cr>
 
 " Omnicomplete
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd BufRead,BufNewFile *.scss set filetype=scss
+autocmd FileType {css,scss} set omnifunc=csscomplete#CompleteCSS
+
+" Automatically equalize splits
+autocmd VimResized * wincmd =
+
+" switch.vim
+nnoremap - :Switch<cr>
+
+" vimux
+" Run the current file with rspec
+map <Leader>rb :call VimuxRunCommand("clear; nocorrect bundle exec rspec " . bufname("%"))<CR>
+
+" Prompt for a command to run
+map <Leader>rp :VimuxPromptCommand<CR>
+
+" Run last command executed by VimuxRunCommand
+map <Leader>rl :VimuxRunLastCommand<CR>
+
+" Inspect runner pane
+map <Leader>ri :VimuxInspectRunner<CR>
+
+" Close all other tmux panes in current window
+map <Leader>rx :VimuxClosePanes<CR>
+
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>rq :VimuxCloseRunner<CR>
+
+" Interrupt any command running in the runner pane
+map <Leader>rs :VimuxInterruptRunner<CR>
