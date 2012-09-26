@@ -10,8 +10,9 @@
     $ git clone git://github.com/benzimmer/dotvim.git ~/.vim
     $ cd ~/.vim
     $ rake vim:install   # create bundle directory and fetch vundle from github
-    $ vim +BundleInstall # start vim and install scripts
     $ rake vim:link      # create symlinks to configuration files in ~/
+    $ vim +BundleInstall # start vim and install scripts
+
 
 ## Updating
 
