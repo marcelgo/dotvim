@@ -4,6 +4,7 @@
 
 * git
 * rake
+* ack
 * vim ;)
 
 ## Installation
@@ -13,6 +14,9 @@
     $ rake vim:link      # create symlinks to configuration files in ~/
     $ vim +BundleInstall # start vim and install scripts
 
+## Cheatsheet
+
+[CHEATSHEET.md](https://github.com/benzimmer/dotvim/blob/master/CHEATSHEET.md)
 
 ## Updating
 
@@ -28,6 +32,7 @@ _Note: Auto generated from `vundle.config`
  * [vundle](https://github.com/gmarik/vundle)
  * [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
  * [Arduino-syntax-file](https://github.com/vim-scripts/Arduino-syntax-file)
+ * [cocoa.vim.git](https://github.com/jgoulah/cocoa.vim.git)
  * [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
  * [vim-git](https://github.com/tpope/vim-git)
  * [vim-haml](https://github.com/tpope/vim-haml)
@@ -39,6 +44,7 @@ _Note: Auto generated from `vundle.config`
  * [vim-markdown](https://github.com/tpope/vim-markdown)
  * [python.vim--Vasiliev](https://github.com/vim-scripts/python.vim--Vasiliev)
  * [textile.vim](https://github.com/timcharper/textile.vim)
+ * [scss-syntax.vim](https://github.com/cakebaker/scss-syntax.vim)
  * [delimitMate](https://github.com/Raimondi/delimitMate)
  * [ack.vim](https://github.com/mileszs/ack.vim)
  * [vim-fugitive](https://github.com/tpope/vim-fugitive)
@@ -54,7 +60,6 @@ _Note: Auto generated from `vundle.config`
  * [vim-cucumber](https://github.com/tpope/vim-cucumber)
  * [vim-rails](https://github.com/tpope/vim-rails)
  * [vim-rspec](https://github.com/taq/vim-rspec)
- * [snipmate.vim](https://github.com/msanders/snipmate.vim)
  * [vim-endwise](https://github.com/tpope/vim-endwise)
  * [syntastic](https://github.com/scrooloose/syntastic)
  * [gist-vim](https://github.com/mattn/gist-vim)
@@ -63,6 +68,12 @@ _Note: Auto generated from `vundle.config`
  * [AutoComplPop](https://github.com/vim-scripts/AutoComplPop)
  * [closetag.vim](https://github.com/vim-scripts/closetag.vim)
  * [minibufexpl.vim](https://github.com/fholgado/minibufexpl.vim)
+ * [vim-addon-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils)
+ * [tlib_vim](https://github.com/tomtom/tlib_vim)
+ * [snipmate-snippets](https://github.com/honza/snipmate-snippets)
+ * [vim-snipmate](https://github.com/garbas/vim-snipmate)
  * [Command-T.git](https://github.com/wincent/Command-T.git)
  * [vim-powerline](https://github.com/Lokaltog/vim-powerline)
  * [ctrlp.vim](https://github.com/kien/ctrlp.vim)
+ * [switch.vim](https://github.com/AndrewRadev/switch.vim)
+ * [vimux](https://github.com/benmills/vimux)
