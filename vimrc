@@ -73,7 +73,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set list listchars=tab:\ \ ,trail:·
+set list listchars=tab:\ \ ,nbsp:_,trail:·
 
 " Searching
 set hlsearch
@@ -190,7 +190,7 @@ filetype plugin indent on
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " gist-vim defaults
 if has("mac")
