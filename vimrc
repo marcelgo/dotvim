@@ -1,8 +1,8 @@
+let $RUBYHOME=$HOME."/.rbenv/versions/2.3.5"
+set rubydll=$HOME/.rbenv/versions/2.3.5/lib/libruby.2.3.5.dylib
 set nocompatible               " be iMproved
 filetype off                   " required!
 set t_Co=256
-set guifont=Mensch\ for\ Powerline:h12
-let g:Powerline_symbols = 'fancy'
 
 " use system clipboard on osx
 set clipboard=unnamed
@@ -60,6 +60,13 @@ let g:solarized_termtrans=1
 colorscheme desert
 set background=light
 
+" Status line
+let g:airline_theme="cool"
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+
 set showmatch
 set mat=2
 
@@ -110,7 +117,7 @@ let g:ctrlp_by_filename = 0 " make filename mode standard
 let g:ctrlp_match_window_reversed = 1 " reverse match sort order
 let g:ctrlp_working_path_mode = 2 " find working-directory
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$|log$',
   \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$',
   \ 'link': 'some_bad_symbolic_link',
   \ }
@@ -133,6 +140,8 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 
 " add json syntax highlighting
 au BufNewFile,BufRead *.json set ft=javascript
+
+au BufRead,BufNewFile *.es6 set ft=javascript
 
 "au BufRead,BufNewFile *.txt call s:setupWrapping()
 
@@ -178,6 +187,9 @@ endfun
 
 autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd BufNewFile,BufRead *.html,*.htm  call s:SelectHTML()
+
+let g:prettier#autoformat=0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 " epub support
 au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
