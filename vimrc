@@ -117,7 +117,7 @@ let g:ctrlp_by_filename = 0 " make filename mode standard
 let g:ctrlp_match_window_reversed = 1 " reverse match sort order
 let g:ctrlp_working_path_mode = 2 " find working-directory
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$|log$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|log$\|node_modules$',
   \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$',
   \ 'link': 'some_bad_symbolic_link',
   \ }
@@ -189,7 +189,7 @@ autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandt
 autocmd BufNewFile,BufRead *.html,*.htm  call s:SelectHTML()
 
 let g:prettier#autoformat=0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md PrettierAsync
 
 " epub support
 au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
@@ -353,3 +353,14 @@ function! DeleteTrailingWhitespaces()
   let last_search_removed_from_history = histdel('s', -1)
   call setpos('.', here)
 endfunction
+
+" ale fixers
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\   'ruby': ['rubocop'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_executable = '/usr/local/bin/prettier'
+let g:ale_javascript_prettier_use_global = 1
